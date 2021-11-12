@@ -5,12 +5,14 @@ import (
 )
 
 func TestEncryptAndDecrypt(t *testing.T) {
-	key, _ := GenerateCryptoKey(32) 
-	text := "Testing with some text"
-	encrypted, _ := Encrypt(key, text)
-	decrypted, _ := Decrypt(key, encrypted)
+	var key = "Utm.Pwd-53cr3t.5t4k!_3mpTy*"
+	text := "efM4ywuRrE0PWVOyVnFDEIPwLflQFQUpv1HD+qBL"
+	//encrypted, _ := Encrypt(key, text)
+	decrypted, _ := Decrypt16([]byte(key), text)
 
-	if text != decrypted {
+	if text == decrypted {
 		t.Error("Text should be:", text)
+	} else {
+		t.Error("value:", decrypted)
 	}
 }
